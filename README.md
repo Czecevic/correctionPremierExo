@@ -486,3 +486,460 @@ const countOccurences = (tab, word) => {
   }, 0);
 };
 ```
+
+### exercice 6 - exercice
+
+##### première option
+
+```
+const addIfNew = (tab, numb) => {
+  let verif = false;
+  for (const elem in tab) {
+    if (tab[elem] == numb) {
+      verif = true;
+    }
+  }
+  if (verif == false) {
+    tab.push(numb);
+  }
+  return tab;
+};
+```
+
+##### deuxième option
+
+```
+const addIfNew = (tab, numb) => {
+  if (!tab.includes(numb)) {
+    tab.push(numb);
+  }
+  return tab;
+};
+```
+
+## Base #4 - Hash
+
+lien vers l'exercice => https://rbean.matrice.io/projects/bases-4-hashes/sessions/1075/subject
+
+### exercice 1 - createweekHash
+
+##### première option
+
+```
+const creatWeekHash = () => {
+    const week = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+    const days = {};
+    for ( const day of Week) {
+        days[day] = 0;
+        }
+        return days;
+}
+```
+
+##### deuxième option
+
+```
+const createWeekHash = () => {
+  let week = {
+    monday: 0,
+    tuesday: 0,
+    wednesday: 0,
+    thursday: 0,
+    friday: 0,
+    saturday: 0,
+    sunday: 0,
+  };
+
+  return week;
+}
+
+```
+
+### exercice 2 - displayHash
+
+##### première option
+
+```
+const displayDict = (obj) => {
+  for (const key in obj) {
+    console.log(key + " => " + obj[key]);
+  }
+};
+
+displayDict({
+  "Jacksons 5": 5,
+  Beatles: 4,
+  "Rolling Stones": 5,
+  "Spice Girls": 5,
+});
+```
+
+##### deuxième option
+
+```
+const displayDict = (obj) => {
+  for (const key in obj) {
+    console.log(`${key} => ${obj[key]}`);
+  }
+};
+
+displayDict({
+  "Jacksons 5": 5,
+  Beatles: 4,
+  "Rolling Stones": 5,
+  "Spice Girls": 5,
+});
+```
+
+### exercice 3 - findValue
+
+##### première option
+
+```
+const findValue = (obj, name) => {
+  for (const key in obj) {
+    if (key == name) {
+      return obj[key];
+    }
+  }
+  return undefined;
+};
+
+console.log(
+  findValue(
+    {
+      Obama: 1961,
+      JFK: 1917,
+      Trump: 1946,
+      Clinton: 1946,
+    },
+    "JFK"
+  )
+);
+console.log(
+  findValue(
+    {
+      Obama: 1961,
+      JFK: 1917,
+      Trump: 1946,
+      Clinton: 1946,
+    },
+    "Nixon"
+  )
+);
+```
+
+##### deuxième option
+
+```
+const findValue = (obj, name) => {
+  if (name in obj) return obj[name];
+};
+
+console.log(
+  findValue(
+    {
+      Obama: 1961,
+      JFK: 1917,
+      Trump: 1946,
+      Clinton: 1946,
+    },
+    "JFK"
+  )
+);
+console.log(
+  findValue(
+    {
+      Obama: 1961,
+      JFK: 1917,
+      Trump: 1946,
+      Clinton: 1946,
+    },
+    "Nixon"
+  )
+);
+```
+
+### exercice 4 - updateValue
+
+```
+const updateValue = (obj, key, value) => {
+  obj[key] = value;
+  console.log(obj);
+};
+
+updateValue({ Bread: 1, Salad: 1, Tomato: 2, Onion: 0 }, "Onion", 3);
+updateValue({ Bread: 1, Salad: 1, Tomato: 2 }, "Mayonnaise", 1);
+
+```
+
+### exercice 5 - findValue
+
+##### première option
+
+```
+const findValues = (obj, tab) => {
+  let newTab = [];
+  tab.forEach((key) => {
+    newTab.push(obj[key]);
+  });
+  return newTab;
+};
+
+console.log(
+  findValues(
+    {
+      Obama: 1961,
+      JFK: 1917,
+      Trump: 1946,
+      Clinton: 1946,
+    },
+    ["JFK", "Nixon", "Obama"]
+  )
+);
+```
+
+##### deuxième option
+
+```
+const findValues = (obj, keys) => {
+  return keys.map((key) =>
+    Object.keys(obj).includes(key) ? obj[key] : undefined
+  );
+}
+
+console.log(
+  findValues(
+    {
+      Obama: 1961,
+      JFK: 1917,
+      Trump: 1946,
+      Clinton: 1946,
+    },
+    ["JFK", "Nixon", "Obama"]
+  )
+);
+
+```
+
+### exercice 6 - completeweekHash
+
+##### première option
+
+```
+const completeWeekHash = (obj) => {
+  const days = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ];
+  for (const day of days) {
+    if (obj[day] == undefined) {
+      obj[day] = 0;
+    }
+  }
+  return obj;
+};
+
+completeWeekHash({
+  monday: 1,
+  tuesday: 7,
+  saturday: 8,
+  sunday: -7,
+});
+```
+
+##### deuxième option
+
+```
+const completeWeekHash = (obj) => {
+  const days = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ];
+  for (const day of days) {
+    if (!Object.keys(obj).includes(day)) {
+      obj[day] = 0;
+    }
+  }
+  return obj;
+};
+
+completeWeekHash({
+  monday: 1,
+  tuesday: 7,
+  saturday: 8,
+  sunday: -7,
+});
+
+```
+
+### Base #5 - Strings
+
+lien vers l'exercice => https://rbean.matrice.io/projects/bases-5-strings/sessions/1076/subject
+
+### exercice 1 - printLetters
+
+##### première option
+
+```
+const printLetters = (strings) => {
+  for (let i = 0; i < strings.length; i++) {
+    console.log(strings[i]);
+  }
+};
+
+printLetters("Hello World!");
+
+```
+
+##### deuxième option
+
+```
+const printLetters = (strings) => {
+  for (const string of strings) {
+    console.log(string);
+  }
+};
+
+printLetters("Hello World!");
+```
+
+### exercice 2 - printNoVowels
+
+##### première option
+
+```
+const printNoVowels = (strings) => {
+  for (const string of strings) {
+    if (
+      string != "a" &&
+      string != "e" &&
+      string != "i" &&
+      string != "o" &&
+      string != "u"
+    ) {
+      console.log(string);
+    }
+  }
+};
+
+printNoVowels("it's a new day!");
+
+
+```
+
+##### deuxième option
+
+```
+const printNoVowels = (strings) => {
+  const tab = ["a", "e", "i", "o", "u"];
+  for (const string of strings) {
+    if (!tab.includes(string)) {
+      console.log(string);
+    }
+  }
+};
+
+printNoVowels("it's a new day!");
+```
+
+### exercice 3 - echoEnd
+
+```
+const echoEnd = (strings) => {
+  console.log(strings.slice(-5));
+};
+
+echoEnd("I love kangaroos");
+
+
+```
+
+### exercice 4 - ingly
+
+##### première option
+
+```
+const ingly = (str) => {
+  if (str.slice(-3) == "ing") {
+    console.log(str + "ly");
+  } else {
+    console.log(str + "ing");
+  }
+};
+
+ingly("talk");
+ingly("ing");
+ingly("mind-blowing");
+```
+
+##### deuxième option
+
+```
+const ingly = (str) => {
+  if (str.endsWith("ing")) {
+    console.log(str + "ly");
+  } else {
+    console.log(str + "ing");
+  }
+};
+
+ingly("talk");
+ingly("ing");
+ingly("mind-blowing");
+```
+
+### exercice 5 - echoEnd
+
+##### première option
+
+```
+const ingly = (str) => {
+  if (str.slice(-3) == "ing") {
+    console.log(str + "ly");
+  } else {
+    console.log(str + "ing");
+  }
+};
+
+ingly("talk");
+ingly("ing");
+ingly("mind-blowing");
+```
+
+##### deuxième option
+
+```
+const ingly = (str) => {
+  if (str.endsWith("ing")) {
+    console.log(str + "ly");
+  } else {
+    console.log(str + "ing");
+  }
+};
+
+ingly("talk");
+ingly("ing");
+ingly("mind-blowing");
+```
+
+### exercice 6 - upperInputEnd
+
+```
+const upperInputEnd = (str) => {
+  console.log(str.slice(0, -1) + str.slice(-1).toUpperCase());
+};
+
+upperInputEnd("the floor is lava");
+upperInputEnd("sure!");
+```
