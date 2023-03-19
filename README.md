@@ -90,6 +90,7 @@ function repeatArg(str) {
 }
 ```
 
+le "${}" nous permet d'afficher des variables dans une string via des backstick (`)
 le "\n" permet de fournir ici un saut à la ligne ce qui nous évite une répetition du console.log
 
 ### exercice 3 - exercice
